@@ -152,11 +152,10 @@ if __name__ == '__main__':
 
         print("Jobs data appendedin json.json.")
   
-        job_index = 1
         for job in jobs:
-            print(f"Job {job_index}:")
+            print(f"Job {job[id]}:")
             print(f"Title: {job['title']},\n Company: {job['company']},\n Location: {job['location']}")
-            job_index += 1
+            
 
     finally:
         driver.quit()
