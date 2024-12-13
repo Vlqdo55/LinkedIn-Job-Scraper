@@ -33,6 +33,7 @@ def scrape_job_data(driver):
 
     jobs = []
     current_page = 1
+    id = 0
 
     while True:
         print(f"Scraping Page {current_page}...")
@@ -65,11 +66,16 @@ def scrape_job_data(driver):
                     print(f"Error extracting job card: {e}")
                     title, company, location = 'N/A', 'N/A', 'N/A'
 
+                
                 jobs.append({
+                    'id': id, 
                     'title': title,
                     'company': company,
                     'location': location
                 })
+
+                id += 1 
+
         except Exception as e:
             print(f"Error extracting job cards: {e}")
             break
