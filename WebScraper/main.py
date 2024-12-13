@@ -111,7 +111,7 @@ def scrape_job_data(driver):
 def save_to_json_file(new_jobs, filename):
     
     if os.path.exists(filename)
-        open(filename, 'r', encoding= 'utf-8') as file:
+        with open(filename, 'r', encoding= 'utf-8') as file:
             existing_jobs = json.load(file)
 
     else:
