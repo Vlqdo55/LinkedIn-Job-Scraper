@@ -104,7 +104,7 @@ def scrape_job_data(driver):
 
 if __name__ == '__main__':
 
-    chrome_driver_path = r'D:\chromedriver-win64\chromedriver-win64\chromedriver.exe'
+    chrome_driver_path = '' #url to chromedriver
     service = Service(chrome_driver_path)
 
     chrome_options = Options()
@@ -119,8 +119,9 @@ if __name__ == '__main__':
 
     try:
 
-        username = "m.yaneva002@gmail.com"
-        password = "v06480675"
+        #Your LinkedIn Credentials
+        username = ""
+        password = ""
         driver = login_to_linkedin(driver, username, password)
 
         jobs = scrape_job_data(driver)
