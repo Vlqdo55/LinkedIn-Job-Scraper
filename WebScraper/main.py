@@ -113,7 +113,10 @@ def save_to_json_file(new_jobs, filename):
     
     all_jobs = existing_jobs + new_jobs
 
-    unique_jobs = [dict(t) for t in {tuple(job.items)}]
+    unique_jobs = [dict(t) for t in {tuple(job.items) for job in all_jobs}]
+
+    with open(filename, 'w', encoding= 'utf-8') as file:
+        json.dump(unique_jobs, file, ensure_ascii=False, indent=4)
 
 if __name__ == '__main__':
 
@@ -138,6 +141,11 @@ if __name__ == '__main__':
         driver = login_to_linkedin(driver, username, password)
 
         jobs = scrape_job_data(driver)
+
+        save_to_json_file(jobs, json.json)
+
+        print("Jobs data appendedin json.json.")
+  
         job_index = 1
         for job in jobs:
             print(f"Job {job_index}:")
