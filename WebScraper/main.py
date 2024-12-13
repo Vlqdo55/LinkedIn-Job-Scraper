@@ -1,3 +1,4 @@
+import os
 import json
 from selenium import webdriver
 from selenium.webdriver.support import expected_conditions as EC
@@ -99,6 +100,20 @@ def scrape_job_data(driver):
             break
 
     return jobs
+
+
+def save_to_json_file(new_jobs, filename):
+    
+    if os.path.exists(filename)
+        open(filename, 'r', encoding= 'utf-8') as file:
+            existing_jobs = json.load(file)
+
+    else:
+        existing_jobs = []
+    
+    all_jobs = existing_jobs + new_jobs
+
+    unique_jobs = [dict(t) for t in {tuple(job.items)}]
 
 if __name__ == '__main__':
 
